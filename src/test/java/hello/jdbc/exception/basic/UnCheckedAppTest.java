@@ -12,7 +12,7 @@ public class UnCheckedAppTest {
     @Test
     void unchecked() {
         Controller controller = new Controller();
-        Assertions.assertThatThrownBy(controller::request).isInstanceOf(RuntimeException.class);
+        Assertions.assertThatThrownBy(controller::request).isInstanceOf(RuntimeSQLException.class);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class UnCheckedAppTest {
             try {
                 runSQL();
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeSQLException(e);
             }
         }
 
